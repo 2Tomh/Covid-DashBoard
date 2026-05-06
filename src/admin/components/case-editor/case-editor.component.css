@@ -1,0 +1,153 @@
+/* רקע המודאל */
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px); /* טשטוש רקע מודרני */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease;
+}
+
+/* תוכן המודאל */
+.modal-content {
+  background: white;
+  width: 100%;
+  max-width: 500px;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  position: relative;
+  animation: slideUp 0.3s ease;
+}
+
+/* כותרת */
+.modal-header h2 {
+  margin: 0;
+  color: #2b3674;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.modal-header p {
+  color: #a3aed0;
+  font-size: 14px;
+  margin-top: 5px;
+  margin-bottom: 25px;
+}
+
+/* גריד של הטופס */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.full-width {
+  grid-column: span 2;
+}
+
+/* עיצוב שדות קלט */
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-size: 14px;
+  color: #2b3674;
+  font-weight: 600;
+  margin-bottom: 8px;
+  margin-right: 5px;
+}
+
+input, select {
+  padding: 12px 15px;
+  border: 1px solid #e0e5f2;
+  border-radius: 12px;
+  font-size: 14px;
+  color: #2b3674;
+  background: #f4f7fe;
+  transition: all 0.2s ease;
+}
+
+input:focus, select:focus {
+  outline: none;
+  border-color: #4318ff;
+  background: white;
+  box-shadow: 0 4px 12px rgba(67, 24, 255, 0.08);
+}
+
+.date-input {
+  direction: ltr;
+  text-align: right;
+}
+
+/* כפתורים */
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 30px;
+}
+
+button {
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+}
+
+.btn-cancel {
+  background: #f4f7fe;
+  color: #2b3674;
+}
+
+.btn-cancel:hover {
+  background: #e2e8f0;
+}
+
+.btn-save {
+  background: #4318ff;
+  color: white;
+  box-shadow: 0 4px 14px rgba(67, 24, 255, 0.3);
+}
+
+.btn-save:hover {
+  background: #3311db;
+  transform: translateY(-2px);
+}
+
+/* כפתור X לסגירה */
+.close-x {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: none;
+  font-size: 24px;
+  color: #a3aed0;
+  padding: 0;
+  line-height: 1;
+}
+
+.close-x:hover {
+  color: #2b3674;
+}
+
+/* אנימציות */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}

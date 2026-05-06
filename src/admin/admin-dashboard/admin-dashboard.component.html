@@ -1,0 +1,66 @@
+<div class="admin-layout" *ngIf="!isLoading" dir="rtl">
+
+  <app-case-editor *ngIf="showModal" [title]="modalTitle" [payload]="selectedData" (save)="handleSave($event)"
+    (close)="showModal = false">
+  </app-case-editor>
+
+  <main class="dashboard-content">
+    <app-admin-nav [adminProfile]="adminProfile"></app-admin-nav>
+    <div class="container">
+
+      <header class="dashboard-header">
+        <h1>שלום, {{ adminProfile?.fullname || adminProfile?.displayName }}</h1>
+        <p>סקירה כללית של נתוני המערכת וניהול מקרים</p>
+      </header>
+
+      <div class="card" style="margin-top: 30px; padding: 20px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+          <h3 style="margin: 0;">ניהול רשומות קורונה (ידני)</h3>
+          <button (click)="openCaseModal()"
+            style="background-color: #4318ff; color: white; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer; font-weight: bold;">
+            + הוסף מקרה חדש
+          </button>
+        </div>
+
+        <div class="table-wrapper">
+          <table style="width: 100%; border-collapse: collapse; text-align: right;">
+            <thead>
+              <tr style="border-bottom: 2px solid #eee; color: #a3aed0;">
+                <th style="padding: 12px;">שם מלא</th>
+                <th style="padding: 12px;">מצב</th>
+                <th style="padding: 12px;">עיר</th>
+                <th style="padding: 12px;">תאריך</th>
+                <th style="padding: 12px; width: 120px;">פעולות</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let c of recentCases" style="border-bottom: 1px solid #eee;">
+                <td style="padding: 12px; font-weight: bold; color: #2b3674;">
+                  {{ c.firstName }} {{ c.lastName }}
+                </td>
+                <td style="padding: 12px;">
+                  <span [ngSwitch]="c.condition?.toLowerCase()">
+                    <span *ngSwitchCase="'active'">קל</span>
+                    <span *ngSwitchCase="'death'">נפטר</span>
+                    <span *ngSwitchDefault>{{ c.condition }}</span>
+                  </span>
+                </td>
+                <td style="padding: 12px;">{{ c.city }}</td>
+                <td style="padding: 12px; direction: ltr;">
+                  {{ c.date | date:'dd/MM/yyyy' }}
+                </td>
+                <td style="padding: 12px;">
+                  <button (click)="openCaseModal(c)"
+                    style="color: #4318ff; border: none; background: none; cursor: pointer;">ערוך</button>
+                  <button (click)="deleteCase(c.id)"
+                    style="color: #e53e3e; border: none; background: none; cursor: pointer; margin-right: 10px;">מחק</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</div>

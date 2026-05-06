@@ -1,0 +1,128 @@
+<div class="dashboard-wrapper">
+  <app-admin-nav [adminProfile]="adminProfile" (onLogout)="onLogout()">
+  </app-admin-nav>
+
+  <main class="main-content">
+    <div class="chart-settings-container" dir="rtl">
+
+      <div class="chart-settings-header">
+        <h2>ניהול גרפים ונתונים</h2>
+        <p class="subtitle">הגדרת תצוגה, העלאת קבצי Excel וצפייה בנתונים גולמיים</p>
+      </div>
+
+      <div class="chart-settings-card">
+        <div class="custom-form-group">
+          <label class="custom-label">בחר קטגוריית נתונים לעריכה</label>
+          <div class="select-wrapper">
+            <select [(ngModel)]="selectedChart" (ngModelChange)="onChartChange()" class="custom-input">
+              <option *ngFor="let chart of charts" [ngValue]="chart" [disabled]="chart.isHeader">
+                {{ chart.label }}
+              </option>
+            </select>
+          </div>
+        </div>
+
+        <div class="loader-container" *ngIf="loading">
+          <div class="simple-spinner"></div>
+          <span>טוען הגדרות...</span>
+        </div>
+
+        <div class="settings-content" *ngIf="!loading">
+
+          <div class="custom-form-group">
+            <label class="custom-label">כותרת מותאמת אישית לגרף</label>
+            <input type="text" [(ngModel)]="settings.title" placeholder="למשל: תחלואת ילדים לפי מאומתים..."
+              class="custom-input" />
+          </div>
+
+          <div class="section">
+            <h3 class="section-title">נראות סדרות נתונים בגרף</h3>
+            <div class="series-grid">
+              <div *ngFor="let s of selectedChart.series" class="series-card" [class.active]="isSeriesVisible(s.key)"
+                (click)="toggleSeries(s.key)">
+                <div class="checkbox-box">
+                  <span *ngIf="isSeriesVisible(s.key)">✓</span>
+                </div>
+                <span class="series-label">{{ s.label }}</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="section upload-section" *ngIf="selectedChart.uploadType">
+            <h3 class="section-title">עדכון נתונים (קובץ Excel)</h3>
+
+            <div class="upload-container">
+              <div class="upload-log" *ngIf="uploadLog">
+                <div class="file-info">
+                  <span class="file-icon">📄</span>
+                  <div class="file-details">
+                    <span class="file-name">{{ uploadLog.fileName }}</span>
+                    <span class="upload-date">הועלה ב: {{ uploadLog.uploadedAt | date:'dd/MM/yyyy HH:mm' }}</span>
+                  </div>
+                </div>
+                <button class="btn-delete-log" (click)="deleteUploadLog()" title="מחק היסטוריית העלאה">🗑️</button>
+              </div>
+
+              <div class="file-input-wrapper">
+                <input type="file" id="fileUpload" accept=".xlsx, .csv" (change)="onFileSelected($event)"
+                  class="hidden-input" />
+                <label for="fileUpload" class="file-label">
+                  <span>📁 בחר קובץ להעלאה</span>
+                </label>
+              </div>
+
+              <span class="status-msg" *ngIf="statusMessage" [class.error]="statusMessage.includes('❌')"
+                [class.success]="statusMessage.includes('✅')">
+                {{ statusMessage }}
+              </span>
+            </div>
+          </div>
+
+          <div class="actions-footer">
+            <button class="btn-save-main" (click)="save()">שמור הגדרות תצוגה</button>
+            <div class="saved-indicator" *ngIf="saved">
+              <span class="check-icon">✓</span> ההגדרות נשמרו בהצלחה
+            </div>
+          </div>
+
+          <hr class="divider" />
+
+          <div class="section table-section">
+            <h3 class="section-title">תצוגה מקדימה של נתונים: {{ selectedChart.label }}</h3>
+
+            <div class="table-responsive" *ngIf="latestData && latestData.length > 0; else noData">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>תאריך / מזהה</th>
+                    <th *ngFor="let s of selectedChart.series">{{ s.label }}</th>
+                    <th>פעולות</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let row of latestData | slice:0:10">
+                    <td>{{ row.date | date:'dd/MM/yyyy' }} {{ row.ageGroup }} {{ row.label }}</td>
+                    <th *ngFor="let s of selectedChart.series">
+                      {{ row[s.key] }}
+                    </th>
+                    <td>
+                      <span class="status-pill">קיים</span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <p class="table-footer">* מציג עד 10 רשומות אחרונות מהמסד נתונים</p>
+            </div>
+
+            <ng-template #noData>
+              <div class="no-data-msg">
+                <p>לא נמצאו נתונים עבור קטגוריה זו. העלה קובץ כדי להתחיל.</p>
+              </div>
+            </ng-template>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </main>
+</div>

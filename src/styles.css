@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans+Hebrew:wght@300;400;700&display=swap');
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+/* החלה על כל האלמנטים באתר כולל כפתורים ותפריטים */
+* {
+    font-family: 'Open Sans Hebrew', Arial, sans-serif !important;
+}
+:root {
+  /* --- מצב בהיר (Default) --- */
+  --site-bg: #acb7be;         /* רקע אפרפר בהיר לכל האתר */
+  --surface-bg: #ffffff;      /* לבן נקי להדר וכרטיסיות */
+  --text-primary: #1a2b4b;    /* כחול כהה לטקסט */
+  --bg-main: #f8f9fa;         /* רקע הקומפוננטה הראשית */
+  --bg-breadcrumbs: #f0f2f5;  /* רקע פירורי הלחם */
+  --text-muted: #666666;      /* טקסט אפור */
+}
+
+body.dark-mode {
+  /* --- מצב כהה --- */
+  --site-bg: #121212;         /* שחור עמוק */
+  --surface-bg: #1e1e1e;      /* אפור כהה מאוד */
+  --text-primary: #ffffff;    /* לבן */
+  --bg-main: #121212;         /* שחור עמוק */
+  --bg-breadcrumbs: #1a1a1a;  /* שחור מעט בהיר יותר */
+  --text-muted: #aaaaaa;      /* אפור בהיר */
+}
+
+body {
+  /* שימוש במשתנים שישתנו אוטומטית */
+  background-color: var(--site-bg) !important;
+  color: var(--text-primary);
+  /* transition: all 0.3s ease; */
+  margin: 0;
+}
+
+/* דריסה גלובלית - שים לב שמשתמשים רק במשתנים כאן */
+body.dark-mode .main-header,
+body.dark-mode .main-nav,
+body.dark-mode .stat-card,
+body.dark-mode footer,
+body.dark-mode .footer-container {
+  background-color: var(--surface-bg) !important;
+  color: var(--text-primary) !important;
+  border-color: #333 !important;
+}
+
+/* עיצוב פירורי הלחם במצב כהה */
+body.dark-mode .breadcrumbs {
+  background-color: var(--bg-breadcrumbs) !important;
+}
+
+body.dark-mode .breadcrumbs span {
+  color: var(--text-muted) !important;
+}
+
+/* .charts-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  direction: rtl;
+} */
+/* 
+.chart-card {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  min-height: 350px;
+}
+
+.chart-card h3 {
+  font-size: 1.1rem;
+  color: #374f60;
+  margin-bottom: 15px;
+  font-weight: 700;
+} */

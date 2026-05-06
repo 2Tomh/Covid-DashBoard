@@ -1,0 +1,62 @@
+<div class="modal-backdrop" (click)="onCancel()" dir="rtl">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    
+    <button class="close-x" (click)="onCancel()">&times;</button>
+
+    <header class="modal-header">
+      <h2>{{ title }}</h2>
+      <p>עדכן את פרטי המקרה במערכת</p>
+    </header>
+
+    <div class="form-grid">
+      <div class="form-group">
+        <label>שם פרטי</label>
+        <input type="text" [(ngModel)]="payload.firstName" placeholder="למשל: ישראל">
+      </div>
+
+      <div class="form-group">
+        <label>שם משפחה</label>
+        <input type="text" [(ngModel)]="payload.lastName" placeholder="למשל: ישראלי">
+      </div>
+
+      <div class="form-group">
+        <label>מצב רפואי</label>
+        <div class="select-wrapper">
+          <select [(ngModel)]="payload.condition">
+            <option value="Active">קל</option>
+            <option value="בינוני">בינוני</option>
+            <option value="קשה">קשה</option>
+            <option value="Death">נפטר</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>גיל</label>
+        <input type="number" [(ngModel)]="payload.ageGroup" placeholder="0">
+      </div>
+
+      <div class="form-group full-width">
+        <label>עיר מגורים</label>
+        <input type="text" [(ngModel)]="payload.city" placeholder="הכנס עיר">
+      </div>
+
+      <div class="form-group full-width">
+        <label>תאריך אבחון</label>
+        <input 
+          type="text" 
+          [(ngModel)]="payload.date" 
+          (input)="formatDate($event)"
+          maxlength="10"
+          placeholder="01/01/2024"
+          class="date-input"
+        >
+      </div>
+    </div>
+
+    <footer class="modal-actions">
+      <button class="btn-cancel" (click)="onCancel()">ביטול</button>
+      <button class="btn-save" (click)="onSave()">שמור שינויים</button>
+    </footer>
+  </div>
+</div>

@@ -1,0 +1,35 @@
+<nav class="main-nav">
+  <div class="nav-container">
+    
+    <div class="nav-right-group">
+      <div class="nav-logo">
+        <span class="logo-icon">🦠</span>
+        <span class="logo-text">COVID-19 Admin</span>
+      </div>
+
+      <ul class="nav-list">
+        <li>
+          <a class="nav-item" routerLink="/admin/dashboard" routerLinkActive="active">ניהול מקרים</a>
+        </li>
+        <li>
+          <a class="nav-item" routerLink="/admin/chart-settings" routerLinkActive="active">ניהול גרפים</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="flex-spacer"></div>
+
+    <div class="nav-user-area">
+      <div class="user-info">
+        <span class="user-name">{{ adminProfile?.username || 'מנהל' }}</span>
+        <span class="user-role">מנהל מערכת</span>
+      </div>
+      
+      <div class="nav-actions">
+        <button class="btn-action-outline" (click)="onOpenProfileModal.emit()">עריכה</button>
+        <button class="btn-logout-small" (click)="logout()">התנתקות</button>
+      </div>
+    </div>
+
+  </div>
+</nav>

@@ -1,0 +1,18 @@
+body {
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+    overflow: overlay;
+    box-sizing: border-box;
+    z-index: 999;
+    position: relative;
+    direction: inherit;
+}
+* {
+    font-family: 'Open Sans Hebrew', Arial, sans-serif !important;
+}
+html, body, button, input, select, textarea {
+    font-family: 'Open Sans Hebrew', Arial, sans-serif;
+}
+:root { --surface-bg: #ffffff; }
+body.dark-mode { --surface-bg: #1e1e1e; }

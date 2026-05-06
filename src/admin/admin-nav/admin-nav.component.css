@@ -1,0 +1,140 @@
+.main-nav {
+  background-color: rgb(55, 79, 96);
+  color: white;
+  direction: rtl;
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  height: 60px; /* הגבהתי מעט ל-60px למראה אוורירי יותר */
+  display: flex;
+  align-items: center;
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+/* קבוצת ימין */
+.nav-right-group {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-left: 1px solid rgba(255, 255, 255, 0.15);
+  padding-left: 20px;
+}
+
+.logo-text {
+  font-weight: 800;
+  font-size: 18px;
+  letter-spacing: -0.5px;
+}
+
+.nav-list {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 8px;
+}
+
+.nav-item {
+  padding: 8px 20px;
+  font-size: 14px;
+  cursor: pointer;
+  font-weight: 700;
+  border-radius: 20px;
+  transition: all 0.2s ease;
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+}
+
+.nav-item.active {
+  background-color: white;
+  color: rgb(55, 79, 96);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.nav-item:hover:not(.active) {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+/* רווח דוחף */
+.flex-spacer {
+  flex: 1;
+}
+
+/* אזור משתמש */
+.nav-user-area {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  text-align: left; /* יישור טקסט בתוך הבלוק */
+}
+
+.user-name {
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.user-role {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.nav-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-action-outline {
+  background: transparent;
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 6px 14px;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn-action-outline:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: white;
+}
+
+.btn-logout-small {
+  background: #f87171; /* אדום ברור יותר */
+  color: white;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-logout-small:hover {
+  background: #ef4444;
+  box-shadow: 0 4px 10px rgba(239, 68, 68, 0.3);
+}
