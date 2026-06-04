@@ -1,76 +1,119 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans+Hebrew:wght@300;400;700&display=swap');
 @import '@angular/material/prebuilt-themes/indigo-pink.css';
-/* החלה על כל האלמנטים באתר כולל כפתורים ותפריטים */
+
 * {
-    font-family: 'Open Sans Hebrew', Arial, sans-serif !important;
+  font-family: 'Open Sans Hebrew', Arial, sans-serif !important;
 }
+
 :root {
-  /* --- מצב בהיר (Default) --- */
-  --site-bg: #acb7be;         /* רקע אפרפר בהיר לכל האתר */
-  --surface-bg: #ffffff;      /* לבן נקי להדר וכרטיסיות */
-  --text-primary: #1a2b4b;    /* כחול כהה לטקסט */
-  --bg-main: #f8f9fa;         /* רקע הקומפוננטה הראשית */
-  --bg-breadcrumbs: #f0f2f5;  /* רקע פירורי הלחם */
-  --text-muted: #666666;      /* טקסט אפור */
+  direction: rtl;
+  --site-bg: #acb7be;
+  --header-bg: #ffffff;
+  --dashboard-bg: #f7f9fc;
+  --card-bg: #ffffff;
+  --sidenav-bg: #ffffff;
+  --text-primary: #1a2332;
+  --text-secondary: #64748b;
+  --border-color: #e2e8f0;
+  --nav-divider: #d8dde3;
+  --icon-bg: #000000;
+  --icon-text: #ffffff;
+  --toggle-bg: #000000;
+  --toggle-icon: #ffffff;
+  --background-color: #ffffff;
 }
 
 body.dark-mode {
-  /* --- מצב כהה --- */
-  --site-bg: #121212;         /* שחור עמוק */
-  --surface-bg: #1e1e1e;      /* אפור כהה מאוד */
-  --text-primary: #ffffff;    /* לבן */
-  --bg-main: #121212;         /* שחור עמוק */
-  --bg-breadcrumbs: #1a1a1a;  /* שחור מעט בהיר יותר */
-  --text-muted: #aaaaaa;      /* אפור בהיר */
+  --site-bg: #1a2332;
+  --header-bg: #4b6170;
+  --dashboard-bg: #1a2332;
+  --card-bg: #374f60;
+  --sidenav-bg: #2d3f50;
+  --text-primary: #ffffff;
+  --text-secondary: #94a3b8;
+  --border-color: #4b6170;
+  --nav-divider: #4b6170;
+  --icon-bg: #ffffff;
+  --icon-text: #000000;
+  --toggle-bg: #ffffff;
+  --toggle-icon: #000000;
+  --background-color: #374f60;
 }
 
 body {
-  /* שימוש במשתנים שישתנו אוטומטית */
-  background-color: var(--site-bg) !important;
-  color: var(--text-primary);
-  /* transition: all 0.3s ease; */
   margin: 0;
+  height: 100vh;
+  padding: 0;
+  overflow: auto;
+  box-sizing: border-box;
+  background-color: var(--site-bg);
+  color: var(--text-primary);
 }
 
-/* דריסה גלובלית - שים לב שמשתמשים רק במשתנים כאן */
-body.dark-mode .main-header,
-body.dark-mode .main-nav,
-body.dark-mode .stat-card,
-body.dark-mode footer,
-body.dark-mode .footer-container {
-  background-color: var(--surface-bg) !important;
-  color: var(--text-primary) !important;
-  border-color: #333 !important;
+body[dir="ltr"] .nav-bar,
+body[dir="ltr"] app-header-nav,
+body[dir="ltr"] .main-header,
+body[dir="ltr"] .header-container {
+  direction: ltr;
+  text-align: left;
 }
 
-/* עיצוב פירורי הלחם במצב כהה */
-body.dark-mode .breadcrumbs {
-  background-color: var(--bg-breadcrumbs) !important;
+body[dir="ltr"] {
+  direction: ltr;
 }
 
-body.dark-mode .breadcrumbs span {
-  color: var(--text-muted) !important;
+body[dir="ltr"] .nav-items,
+body[dir="ltr"] .nav-list {
+  flex-direction: row;
 }
 
-/* .charts-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
-  gap: 20px;
-  padding: 20px;
-  direction: rtl;
-} */
-/* 
-.chart-card {
-  background: white;
-  border-radius: 8px;
-  padding: 20px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-  min-height: 350px;
+.language-container {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
 }
 
-.chart-card h3 {
-  font-size: 1.1rem;
-  color: #374f60;
-  margin-bottom: 15px;
-  font-weight: 700;
-} */
+.language-container button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.rect-back {
+  fill: white;
+  stroke: #374F60;
+  stroke-width: 1.15;
+}
+
+.rect-front {
+  fill: #374F60;
+}
+
+@media (max-width: 480px) {
+  .language-container button {
+    padding: 3px;
+  }
+}
+
+@media (max-width: 350px) {
+  .language-container button {
+    padding: 2px;
+  }
+
+  .language-container button svg {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+body.dark-mode button[aria-label="Toggle Dark Mode"] .icon-wrapper svg path {
+  fill: #ffffff;
+}
+
+body.dark-mode button[aria-label="Toggle Dark Mode"] .icon-wrapper svg g rect {
+  fill: #374F60;
+}

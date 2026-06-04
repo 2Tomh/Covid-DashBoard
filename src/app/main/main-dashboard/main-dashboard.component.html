@@ -1,58 +1,23 @@
 <app-header></app-header>
-<main>
-  <app-overview-cards></app-overview-cards>
-  <hr class="section-divider">
+<div class="dashboard-wrapper">
+  <app-side-nav #sideNav></app-side-nav>
 
-  <section id="metrics">
-    <app-main-metrics></app-main-metrics>
-  </section>
-  <hr class="section-divider">
+  <button class="hamburger-btn" [class.is-open]="!sideNav.isCollapsed"
+    (click)="sideNav.toggleSidenav(); sideNavRef = sideNav">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
 
-  <section id="tables-data">
-    <app-table-data></app-table-data>
-  </section>
-  <hr class="section-divider">
-  <section id="child-morbidity">
-    <app-child-morbidity></app-child-morbidity>
-  </section>
-
-  <hr class="section-divider">
-
-  <section id="vaccine-impact">
-    <app-vaccine-impact></app-vaccine-impact>
-  </section>
-
-  <hr class="section-divider">
-
-  <section id="deaths">
-    <app-deaths></app-deaths>
-  </section>
-
-  <hr class="section-divider">
-
-  <section id="testing">
-    <app-testing></app-testing>
-  </section>
-
-  <hr class="section-divider">
-
-  <section id="additional-investigations">
-    <app-additional-investigations></app-additional-investigations>
-  </section>
-
-  <hr class="section-divider">
-
-  <section id="recovery-cases">
-    <app-recovery-cases></app-recovery-cases>
-  </section>
-
-  <hr class="section-divider">
-
-  <section id="popluation-vaccination">
-    <app-popluation-vaccination></app-popluation-vaccination>
-  </section>
-
-  <hr class="section-divider">
-
-</main>
-<!-- <app-footer></app-footer> -->
+  <main [style.margin-right.px]="isMobile ? 0 : (!isEnglish ? (sideNav.isCollapsed ? 60 : 300) : 0)"
+    [style.margin-left.px]="isMobile ? 0 : (isEnglish ? (sideNav.isCollapsed ? 60 : 300) : 0)">
+    <app-overview-cards></app-overview-cards>
+    <hr class="section-divider">
+    <section id="main-metrics"><app-main-metrics></app-main-metrics></section>
+    <hr class="section-divider">
+    <section id="vaccine-impact"><app-vaccine-impact></app-vaccine-impact></section>
+    <hr class="section-divider">
+    <section id="tables-data" class="tabel-data"><app-table-data></app-table-data></section>
+    <hr class="section-divider">
+  </main>
+</div>

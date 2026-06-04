@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from '../services/auth/auth.service'; // תוודא שהנתיב נכון
+import { AuthService } from '../services/auth/auth.service';
 
 @Component({
   selector: 'app-admin-nav',
@@ -16,13 +16,11 @@ export class AdminNavComponent {
     private router: Router
   ) { }
 
-  // זה מה שמפעיל את הכפתור האדום
   logout(): void {
     this.authService.logout();
     this.router.navigate(['/admin']);
   }
 
-  // זה מה שמפעיל את כפתור העריכה
   triggerProfileEdit(): void {
     this.onOpenProfileModal.emit();
   }

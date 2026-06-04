@@ -16,6 +16,6 @@ export class ChildMorbidityUploadService {
   }
 
   getAll(): Observable<any[]> {
-  return this.http.get<any[]>(this.apiUrl); // מניח שה-GET מחזיר את כל הנתונים
+  return this.http.get<any[]>(this.apiUrl); 
 }
 }

@@ -7,7 +7,7 @@
   top: 0;
   z-index: 1000;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  height: 60px; /* הגבהתי מעט ל-60px למראה אוורירי יותר */
+  height: 60px;
   display: flex;
   align-items: center;
 }
@@ -21,7 +21,6 @@
   padding: 0 32px;
 }
 
-/* קבוצת ימין */
 .nav-right-group {
   display: flex;
   align-items: center;
@@ -72,12 +71,10 @@
   color: white;
 }
 
-/* רווח דוחף */
 .flex-spacer {
   flex: 1;
 }
 
-/* אזור משתמש */
 .nav-user-area {
   display: flex;
   align-items: center;
@@ -87,7 +84,7 @@
 .user-info {
   display: flex;
   flex-direction: column;
-  text-align: left; /* יישור טקסט בתוך הבלוק */
+  text-align: left; 
 }
 
 .user-name {
@@ -123,7 +120,7 @@
 }
 
 .btn-logout-small {
-  background: #f87171; /* אדום ברור יותר */
+  background: #f87171; 
   color: white;
   border: none;
   padding: 6px 14px;

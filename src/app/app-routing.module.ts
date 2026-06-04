@@ -4,24 +4,6 @@ import { MainDashboardComponent } from './main/main-dashboard/main-dashboard.com
 import { MainMetricsComponent } from './main/components/pages/main-metrics/main-metrics.component'
 import { TestingComponent } from './main/components/pages/testing/testing.component'
 
-
-// const routes: Routes = [
-//   {
-//     path: 'main',
-//     component: MainDashboardComponent,
-//     children: [
-//       { path: 'main-metrics', component: MainMetricsComponent },
-//       { path: 'testing', component: TestingComponent },
-//       { path: '', redirectTo: 'main-metrics', pathMatch: 'full' }
-//     ]
-//   },
-//   {
-//     path: 'admin',
-//     loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)
-//   },
-//   { path: '', redirectTo: 'main', pathMatch: 'full' },
-//   { path: '**', redirectTo: 'main' }
-// ];
 const routes: Routes = [
   {
     path: 'main',
@@ -34,7 +16,6 @@ const routes: Routes = [
   },
   {
     path: 'admin',
-    // הוספנו ../ כדי לצאת מתיקיית app ולמצוא את תיקיית admin
     loadChildren: () => import('../admin/admin.module').then(m => m.AdminModule)
   },
   { path: '', redirectTo: 'main', pathMatch: 'full' },

@@ -45,8 +45,6 @@ export class ProfileModalComponent implements OnInit {
     }
 
     this.onSave.emit(payload);
-
-    // איפוס שדות הסיסמה בלבד מטעמי אבטחה
     this.passwordForm = { currentPassword: '', newPassword: '' };
   }
 

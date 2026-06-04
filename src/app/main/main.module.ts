@@ -1,9 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms'; // <-- 1. הוסף את השורה הזו
+import { FormsModule } from '@angular/forms';
 import { MainRoutingModule } from './main-routing.module';
 import { HeaderComponent } from './components/header/header.component';
-import { FooterComponent } from './components/footer/footer.component';
 import { OverviewCardsComponent } from './components/overview-cards/overview-cards.component';
 import { MainDashboardComponent } from './main-dashboard/main-dashboard.component';
 import { ChildMorbidityComponent } from './components/pages/child-morbidity/child-morbidity.component';
@@ -22,7 +21,6 @@ import { TetsingPositivityComponent } from './components/pages/testing/tetsing-p
 import { TetsingVolumeComponent } from './components/pages/testing/tetsing-volume/tetsing-volume.component';
 import { TetsingAgeGroupsComponent } from './components/pages/testing/tetsing-age-groups/tetsing-age-groups.component';
 import { AdditionalInvestigationsDailyComponent } from './components/pages/additional-investigations/additional-investigations-daily/additional-investigations-daily.component';
-// import { AdditionalInvestigationsWeeklyComponent } from './components/pages/additional-investigations/additional-investigations-weekly/additional-investigations-weekly.component';
 import { RecoveryDailyComponent } from './components/pages/recovery-cases/recovery-daily/recovery-daily.component';
 import { RecoveryByVaccinationComponent } from './components/pages/recovery-cases/recovery-by-vaccination/recovery-by-vaccination.component';
 import { RecoveryByVaccinationAgeGroupsComponent } from './components/pages/recovery-cases/recovery-by-vaccination-age-groups/recovery-by-vaccination-age-groups.component';
@@ -47,13 +45,13 @@ import { MatTableModule } from '@angular/material/table';
 import { TableDataComponent } from './components/table-data/table-data.component';
 import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
-
+import { SideNavComponent } from './components/header/side-nav/side-nav.component';
+import { TranslateModule } from '@ngx-translate/core';
 @NgModule({
   declarations: [
     MainDashboardComponent,
     MainMetricsComponent,
     HeaderComponent,
-    FooterComponent,
     OverviewCardsComponent,
     ChildMorbidityComponent,
     VaccineImpactComponent,
@@ -68,7 +66,6 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     TetsingVolumeComponent,
     TetsingAgeGroupsComponent,
     AdditionalInvestigationsDailyComponent,
-    // AdditionalInvestigationsWeeklyComponent,
     RecoveryDailyComponent,
     RecoveryByVaccinationComponent,
     RecoveryByVaccinationAgeGroupsComponent,
@@ -88,23 +85,24 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     InternationalMetricsTableComponent,
     CityTrafficLightTableComponent,
     TableDataComponent,
+    SideNavComponent,
   ],
   imports: [
     MatTableModule,
-    MatSelectModule,    // <-- חובה עבור הפילטר החדש
+    MatSelectModule,
     MatFormFieldModule,
     CommonModule,
     FormsModule,
     ChartsModule,
     MainRoutingModule,
     HttpClientModule,
+    TranslateModule,
     NgxEchartsModule.forRoot({
       echarts: () => import('echarts'),
     }),
   ], exports: [
     MainDashboardComponent,
     HeaderComponent,
-    FooterComponent,
     MainMetricsComponent,
     TableDataComponent,
     ChildMorbidityComponent,
@@ -114,7 +112,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     TestingComponent,
     AdditionalInvestigationsComponent,
     RecoveryCasesComponent,
-    PopluationVaccinationComponent
+    PopluationVaccinationComponent,
+    TranslateModule
   ]
 })
 export class MainModule { }

@@ -13,10 +13,9 @@ import { DeathUploadService } from '../services/death-upload/death-upload.servic
 export class AdminDashboardComponent implements OnInit {
   adminProfile: any = null;
   latestData: any[] = [];
-  recentCases: any[] = []; // כאן נשמרים המקרים הידניים מה-DB
+  recentCases: any[] = [];
   isLoading = false;
 
-  // משתני מודאל
   showModal = false;
   modalTitle = '';
   selectedData: any = {};
@@ -39,11 +38,10 @@ export class AdminDashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.adminService.getProfile().subscribe(p => this.adminProfile = p);
-    this.loadData();         // טוען את נתוני האקסל/גרפים
-    this.loadRecentCases();  // טוען את המקרים הידניים מה-DB (חשוב!)
+    this.loadData();        
+    this.loadRecentCases(); 
   }
 
-  // טעינת רשימת המקרים מה-DB (בשביל הטבלה העליונה)
   loadRecentCases() {
     this.adminService.getAllCases().subscribe({
       next: (cases) => this.recentCases = cases,
@@ -82,72 +80,29 @@ export class AdminDashboardComponent implements OnInit {
     if (existingCase) {
       this.selectedData = { ...existingCase };
     } else {
-      // הגדרת תאריך היום אוטומטית
-      const today = new Date().toLocaleDateString('he-IL'); // מחזיר DD/MM/YYYY
+      const today = new Date().toLocaleDateString('he-IL'); 
       this.selectedData = {
         name: '',
         condition: 'קל',
         city: '',
-        date: today // התאריך של היום נכנס לכאן
+        date: today 
       };
     }
     this.showModal = true;
   }
 
-  // handleSave(updatedData: any) {
-  //   this.showModal = false;
-
-  //   // יצירת עותק לשינויים לפני שליחה
-  //   const dataToSend = { ...updatedData };
-
-  //   // המרת תאריך מ-DD/MM/YYYY ל-ISO String ש-C# DateTime מבין
-  //   if (dataToSend.date && dataToSend.date.includes('/')) {
-  //     const parts = dataToSend.date.split('/');
-  //     if (parts.length === 3) {
-  //       const d = new Date(+parts[2], +parts[1] - 1, +parts[0]);
-  //       dataToSend.date = d.toISOString();
-  //     }
-  //   }
-
-  //   const id = dataToSend.id || dataToSend._id;
-
-  //   if (id) {
-  //     // עדכון
-  //     this.adminService.updateCase(id, dataToSend).subscribe({
-  //       next: () => this.loadRecentCases(),
-  //       error: (err) => console.error('Update Error:', err)
-  //     });
-  //   } else {
-  //     // הוספה - מוחקים ID כדי שהשרת יקצה אחד חדש
-  //     delete dataToSend.id;
-  //     this.adminService.addCase(dataToSend).subscribe({
-  //       next: () => this.loadRecentCases(),
-  //       error: (err) => {
-  //         console.error('Add Error:', err.error);
-  //         alert('שגיאה בהוספה. וודא שכל השדות מלאים.');
-  //       }
-  //     });
-  //   }
-  // }
-
-  // הוספת פונקציית מחיקה (נדרש ב-CRUD)
   handleSave(updatedData: any) {
     this.showModal = false;
 
-    // העתקת הנתונים
     const dataToSend = { ...updatedData };
-
-    // 1. טיפול קריטי בתאריך - המרה לפורמט ש-C# DateTime מבין
     if (dataToSend.date && dataToSend.date.includes('/')) {
       const parts = dataToSend.date.split('/');
-      // יצירת תאריך מקומי והמרה ל-ISO
       const d = new Date(parseInt(parts[2]), parseInt(parts[1]) - 1, parseInt(parts[0]), 12, 0, 0);
       dataToSend.date = d.toISOString();
     } else {
       dataToSend.date = new Date().toISOString();
     }
 
-    // 2. וודוא ששדות מספריים הם אכן Number ולא String
     dataToSend.ageGroup = Number(dataToSend.ageGroup || 0);
     dataToSend.doseCount = Number(dataToSend.doseCount || 0);
     dataToSend.isVaccinated = Boolean(dataToSend.isVaccinated);
@@ -155,19 +110,16 @@ export class AdminDashboardComponent implements OnInit {
     const id = dataToSend.id || dataToSend._id;
 
     if (id && id !== 0) {
-      // עדכון (PUT)
       this.adminService.updateCase(id, dataToSend).subscribe({
         next: () => this.loadRecentCases(),
         error: (err) => console.error('Update Error Details:', err.error)
       });
     } else {
-      // הוספה (POST)
-      delete dataToSend.id; // ב-POST של .NET אסור לשלוח ID (הוא נוצר ב-DB)
+      delete dataToSend.id; 
 
       this.adminService.addCase(dataToSend).subscribe({
         next: () => this.loadRecentCases(),
         error: (err) => {
-          // כאן תוכל לראות בדיוק איזה שדה נכשל בולידציה
           console.error('Validation Error Details:', err.error.errors);
           alert('שגיאת ולידציה בשרת. בדוק את ה-Console בדפדפן.');
         }

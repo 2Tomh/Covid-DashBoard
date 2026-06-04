@@ -1,4 +1,3 @@
-/* קונטיינר ראשי שתופס את כל המסך */
 .login-container {
     display: flex;
     justify-content: center;
@@ -9,7 +8,6 @@
     direction: rtl;
 }
 
-/* כרטיסיית הלוגין */
 form {
     background: #ffffff;
     padding: 2.5rem;
@@ -30,7 +28,6 @@ h2 {
     font-weight: 700;
 }
 
-/* עיצוב קבוצות קלט */
 .form-group {
     display: flex;
     flex-direction: column;
@@ -57,7 +54,6 @@ input:focus {
     box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
 }
 
-/* שדה סיסמה עם כפתור הצגה */
 .password-input {
     position: relative;
     display: flex;
@@ -66,7 +62,7 @@ input:focus {
 
 .password-input input {
     width: 100%;
-    padding-left: 3.5rem; /* רווח לכפתור בצד שמאל (בגלל ה-RTL) */
+    padding-left: 3.5rem;
 }
 
 .password-input button {
@@ -80,7 +76,6 @@ input:focus {
     font-weight: 600;
 }
 
-/* כפתור שליחה */
 button[type="submit"] {
     background-color: #3b82f6;
     color: white;
@@ -103,7 +98,6 @@ button[type="submit"]:disabled {
     cursor: not-allowed;
 }
 
-/* הודעת שגיאה */
 .error-message {
     background-color: #fef2f2;
     color: #dc2626;

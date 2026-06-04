@@ -1,0 +1,312 @@
+{
+  "HEADER": {
+    "TITLE": "Ministry of Health's World of Data",
+    "NAV": {
+      "OVERVIEW": "Overview",
+      "KEY_METRICS": "Key Metrics",
+      "CHILD_MORBIDITY": "Child Cases and Hospitalizations",
+      "VACCINE_IMPACT": "Vaccination Effectiveness",
+      "DECEASED": "Deaths",
+      "TESTING": "Testing",
+      "RESEARCH": "Additional Data",
+      "RECOVERY": "Reinfection and Recovery",
+      "VACCINATION": "Vaccination"
+    }
+  },
+  "SIDENAV": {
+    "DATA_WORLD": "Data World",
+    "WAR_ADMISSIONS": "Wartime Hospital Admissions",
+    "INTERNS": "Interns",
+    "CHILD_INJURY": "Child Injury",
+    "NURSING_EXAMS": "Nursing Exams",
+    "HEALTH_SERVICES": "Health Services in Israel",
+    "HMO_MEMBERS": "HMO Members",
+    "BEACHES": "Beaches",
+    "BREASTFEEDING": "Breastfeeding",
+    "CHILD_DEVELOPMENT": "Child Development Assessment",
+    "GROWTH_TODDLERS": "Toddler Growth Charts",
+    "GROWTH_CHILDREN": "Child Growth Charts",
+    "HEALTH_QUALITY": "Healthcare Quality",
+    "OMBUDSMAN": "Ombudsman",
+    "PATIENT_EXPERIENCE": "Patient Experience Survey",
+    "CORONA": "Corona",
+    "ABOUT": "About",
+    "ACCESSIBILITY": "Accessibility Statement",
+    "TERMS": "Terms of Use"
+  },
+  "OVERVIEW": {
+    "BREADCRUMBS": "Data World > Corona",
+    "TITLE": "Corona",
+    "LAST_UPDATE_LABEL": "Last update:",
+    "SECTION_TITLE": "Overview",
+    "WEEKLY_TITLE": "7-Day Summary",
+    "MORE_INFO": "More information",
+    "CARDS": {
+      "CONFIRMED_YESTERDAY": {
+        "TITLE": "Confirmed yesterday",
+        "SINCE_MIDNIGHT": "Since midnight",
+        "TOTAL": "Total"
+      },
+      "ACTIVE_PATIENTS": {
+        "TITLE": "Active patients",
+        "IN_HOSPITAL": "In hospital"
+      },
+      "VACCINATED": {
+        "TITLE": "Vaccinated",
+        "DOSE_1": "1st dose",
+        "DOSE_2": "2nd dose",
+        "DOSE_3": "3rd dose",
+        "DOSE_4": "4th dose",
+        "OMICRON": "Omicron"
+      },
+      "DEATHS": {
+        "TITLE": "Cumulative deaths"
+      },
+      "POSITIVE_TESTS": {
+        "TITLE": "Percentage of positive tests yesterday",
+        "TESTED_YESTERDAY": "Individuals tested for the virus yesterday",
+        "ALL_TESTS_YESTERDAY": "Total tests yesterday"
+      }
+    },
+    "WEEKLY": {
+      "CONFIRMED": {
+        "TITLE": "Number of confirmed cases",
+        "VS_PREV_WEEK": "Compared to previous 7 days"
+      },
+      "DEATHS": {
+        "TITLE": "Number of deaths",
+        "VS_PREV_WEEK": "Compared to previous 7 days"
+      },
+      "TESTED": {
+        "TITLE": "Number of individuals tested",
+        "VS_PREV_WEEK": "Compared to previous 7 days",
+        "POSITIVE_RATE": "Positive tests"
+      }
+    }
+  },
+  "MAIN_METRICS": {
+    "TITLE": "Key Metrics",
+    "LINKS": "Related links",
+    "DAILY": {
+      "CARD_TITLE": "Daily new confirmed cases",
+      "MORE_INFO": "More information",
+      "NEW_CASES": "New confirmed cases",
+      "MOVING_AVG": "Moving average",
+      "CUMULATIVE": "Cumulative confirmed cases",
+      "Y_AXIS_LABEL": "New confirmed cases",
+      "FILTER": {
+        "LAST_MONTH": "Last month",
+        "3_MONTHS": "3 months",
+        "6_MONTHS": "6 months",
+        "YEAR": "Year",
+        "ALL": "All time"
+      }
+    },
+    "WEEKLY": {
+      "CARD_TITLE": "Weekly confirmed cases average",
+      "MORE_INFO": "More information"
+    }
+  },
+  "VACCINE_IMPACT": {
+    "TITLE": "Vaccination impact on morbidity",
+    "DAILY_CONFIRMED": "Daily confirmed - Vaccination status",
+    "MORE_INFO": "More information",
+    "UPDATE_DATE": "Update date",
+    "UNVACCINATED": "Unvaccinated",
+    "EXPIRED_VACCINATION": "Vaccination expired",
+    "VACCINATED": "Vaccinated",
+    "AGE_GROUPS": {
+      "ALL": "Total population",
+      "UNDER_60": "Under 60",
+      "OVER_60": "Over 60"
+    },
+    "DISPLAY_MODE": {
+      "ABSOLUTE": "Absolute number",
+      "PER_100K": "Per 100k residents"
+    },
+    "TIME_RANGE": {
+      "ALL": "All time",
+      "YEAR": "Year",
+      "6_MONTHS": "6 months",
+      "3_MONTHS": "3 months",
+      "MONTH": "Last month"
+    }
+  },
+  "TRAFFIC_LIGHT": {
+    "TITLE": "City status (Traffic light)",
+    "MORE_INFO": "More information",
+    "ALL_CITIES": "All cities",
+    "CITY": "City",
+    "DAILY_SCORE": "Daily score",
+    "NEW_CASES": "New cases",
+    "POSITIVITY_RATE": "Positivity rate",
+    "CHANGE_RATE": "Confirmed cases change",
+    "ACTIVE_CASES": "Active cases",
+    "COLORS": {
+      "RED": "Red",
+      "ORANGE": "Orange",
+      "YELLOW": "Yellow",
+      "GREEN": "Green",
+      "UP_TO": "Up to"
+    },
+    "CITIES": {
+      "ירושלים": "Jerusalem",
+      "תל אביב - יפו": "Tel Aviv - Yafo",
+      "חיפה": "Haifa",
+      "אשדוד": "Ashdod",
+      "רמת גן": "Ramat Gan",
+      "בני ברק": "Bnei Brak"
+    }
+  },
+  "HOSPITAL_OCCUPANCY": {
+    "TITLE": "Hospital occupancy",
+    "MORE_INFO": "More information",
+    "ALL_HOSPITALS": "All hospitals",
+    "SELECTED_COUNT": "{{count}} hospitals selected",
+    "HOSPITAL": "Hospital",
+    "TOTAL_OCCUPANCY": "General occupancy %",
+    "INTERNAL_OCCUPANCY": "Internal ward occupancy %",
+    "HOSPITALS": {
+      "שערי צדק": "Shaare Zedek",
+      "שמיר": "Shamir",
+      "שמואל הרופא": "Shmuel HaRofe",
+      "שיבא": "Sheba",
+      "סורוקה": "Soroka",
+      "איכילוב": "Ichilov",
+      "בלינסון": "Beilinson"
+    }
+  },
+  "RISK_COUNTRIES": {
+    "TITLE": "Confirmed arrivals by country",
+    "MORE_INFO": "More information",
+    "ALL_COUNTRIES": "All countries",
+    "SELECTED_COUNT": "{{count}} countries selected",
+    "LEGEND": {
+      "MAX": "Maximum",
+      "RISK": "Risk",
+      "LOW": "Low"
+    },
+    "COLUMNS": {
+      "COUNTRY": "Country",
+      "COLOR": "Color",
+      "INCOMING": "Arrivals",
+      "CITIZENS": "Citizens",
+      "FOREIGNERS": "Foreigners",
+      "PERCENT": "% Confirmed"
+    },
+    "COUNTRIES": {
+      "ארצות הברית": "United States",
+      "צרפת": "France",
+      "איטליה": "Italy",
+      "אנגליה": "England"
+    }
+  },
+  "FILTERS": {
+    "SHOW_BY_VACCINE": "Show by vaccination status",
+    "VACCINATION_STATUS": "Vaccination status",
+    "VACCINE_DOSE": "Vaccine dose",
+    "PERCENT": "Percentage",
+    "NUMBER": "Number",
+    "ABSOLUTE_NUMBER": "Absolute number",
+    "PER_100K": "Per 100k residents",
+    "DISPLAY_BY": "Display by",
+    "COUNT_IN_AGE": "Number of confirmed in age group",
+    "PERCENT_IN_AGE": "Percentage of total confirmed in age group",
+    "POPULATION": "Population",
+    "ALL_POPULATION": "All population",
+    "UNDER_60": "Under 60",
+    "ABOVE_60": "Over 60",
+    "TIME": "Time",
+    "TIME_ALL": "All time",
+    "TIME_YEAR": "Year",
+    "TIME_6_MONTHS": "6 months",
+    "TIME_3_MONTHS": "3 months",
+    "TIME_MONTH": "Last month",
+    "HOSPITALS_TITLE": "Hospitals and institutions",
+    "SELECT_HOSPITALS": "Select hospitals",
+    "COUNTRIES_TITLE": "Countries",
+    "SELECT_COUNTRIES": "Select countries",
+    "CITIES_TITLE": "Cities",
+    "SELECT_CITIES": "Search city",
+    "CANCEL": "Cancel",
+    "APPLY": "Apply"
+  },
+  "HOSPITALS": {
+    "SHEBA": "Sheba Tel HaShomer",
+    "ICHILOV": "Ichilov"
+  },
+  "CONFIRMED_YESTERDAY": {
+    "TITLE": "Confirmed yesterday",
+    "TOOLTIP": {
+      "A": "Number of COVID-19 cases detected from 00:00 to 23:59 yesterday.",
+      "B": "Total: Cumulative number of confirmed cases since the outbreak, including reinfections.",
+      "C": "Confirmed cases: Individuals who were tested and found positive for COVID-19 via PCR or supervised antigen test (starting from Jan 5, 2022), regardless of symptoms, clinical status, recovery, or mortality.",
+      "D": "The confirmed cases index is affected by the number of institutional tests performed and therefore may not reflect actual morbidity levels."
+    }
+  },
+  "ACTIVE_PATIENTS": {
+    "TITLE": "Active patients",
+    "IN_HOSPITAL": "In hospital",
+    "TOOLTIP": {
+      "A": "Number of active COVID-19 cases as of the latest update.",
+      "B": "Active cases: Individuals who were tested and found positive for COVID-19 via PCR or supervised antigen test (starting from Jan 5, 2022), regardless of symptoms, who have not yet been defined as recovered and have not passed away."
+    }
+  },
+  "VACCINATED": {
+    "TOOLTIP": {
+      "A": "Number of vaccine recipients against COVID-19 since the beginning of the vaccination campaign. Does not include the 2023/2024 winter vaccines."
+    }
+  },
+  "DEATHS": {
+    "TOOLTIP": {
+      "A": "Cumulative number of deaths from COVID-19 since the outbreak.",
+      "B": "Death data is updated after verifying death certificates for cause of death, therefore late updates may occur."
+    }
+  },
+  "POSITIVE_TESTS": {
+    "TOOLTIP": {
+      "A": "Percentage of individuals who tested positive for COVID-19 out of the number of individuals tested yesterday.",
+      "B": "Individuals tested for the virus yesterday: Number of tests for initial detection (excluding follow-up recovery tests) via PCR or supervised antigen, performed and resulted between 00:00 and 23:59 yesterday.",
+      "C": "Total tests yesterday: Total number of COVID-19 test results (PCR or antigen), including both initial diagnostic tests and follow-up recovery tests, received between 00:00 and 23:59 yesterday."
+    }
+  },
+  "WEEKLY_CONFIRMED": {
+    "TOOLTIP": {
+      "A": "Number of confirmed COVID-19 cases detected in the last 7 days (excluding the update day) and the percentage change compared to the previous 7 days.",
+      "B": "The confirmed cases index is affected by the number of institutional tests performed and therefore may not reflect actual morbidity levels."
+    }
+  },
+  "WEEKLY_DEATHS": {
+    "TOOLTIP": {
+      "A": "Number of deaths from COVID-19 in the last 7 days (excluding the update day) and the percentage change compared to the previous 7 days."
+    }
+  },
+  "WEEKLY_TESTED": {
+    "TOOLTIP": {
+      "A": "Number of individuals tested for COVID-19 via PCR or antigen in the last 7 days (excluding the update day) and the percentage change compared to the previous 7 days.",
+      "B": "Data does not include individuals in follow-up recovery tests.",
+      "C": "Positive tested: Percentage of individuals found positive for COVID-19 out of the number of individuals tested for the virus in the last 7 days."
+    }
+  },
+  "WEEKLY_CASES_AVG": {
+    "TOOLTIP": {
+      "A": "Daily average of new confirmed cases per week.",
+      "B": "Confirmed cases: Individuals who were tested and found positive for COVID-19 via PCR or supervised antigen test (starting from Jan 5, 2022), regardless of symptoms, clinical status, recovery, or mortality.",
+      "C": "The confirmed cases index is affected by the number of institutional tests performed and therefore may not reflect actual morbidity levels."
+    }
+  },
+  "DAILY_CASES_AVG": {
+    "CARD_TITLE": "Daily new confirmed cases",
+    "MORE_INFO": "More information",
+    "TOOLTIP": {
+      "A": "The daily number of COVID-19 infections and the 7-day moving average.",
+      "B": "Confirmed cases: Individuals who were tested and found positive for COVID-19 via PCR or supervised antigen test (starting from Jan 5, 2022), regardless of symptoms, clinical status, recovery, or mortality.",
+      "C": "The confirmed cases index is affected by the number of institutional tests performed and therefore may not reflect actual morbidity levels."
+    }
+  },
+  "CHILD_MORBIDITY_TOOLTIP": {
+    "A": "Daily average of confirmed cases under 19",
+    "B": "The daily average number of confirmed cases under 19 in the last 7 days, divided by 4 age groups: 0-4, 5-11, 12-15, 16-19. Confirmed cases - individuals tested positive for COVID-19 via PCR or supervised antigen test, regardless of symptoms, clinical status, recovery, or mortality.",
+    "C": "The confirmed cases index is affected by the number of institutional tests performed and therefore may not reflect actual morbidity levels."
+  }
+}

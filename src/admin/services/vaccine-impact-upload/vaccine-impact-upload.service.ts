@@ -18,6 +18,5 @@ export class VaccineImpactUploadService {
   }
   getDaily(): Observable<any[]> {
     return this.http.get<any[]>(`${this.apiUrl}/daily-data`); 
-    // וודא שה-Endpoint ב-API שלך תואם לזה (למשל daily-data או פשוט daily)
   }
 }

@@ -19,7 +19,6 @@ export class AdminLoginComponent implements OnInit {
   constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
-    // אם המשתמש כבר מחובר, שלח אותו ישר לדשבורד
     if (this.authService.isLoggedIn()) {
       this.router.navigate(['/admin/dashboard']);
     }
@@ -45,7 +44,6 @@ export class AdminLoginComponent implements OnInit {
       },
       error: (err) => {
         this.isLoading = false;
-        // טיפול בשגיאות לפי סטטוס מהשרת
         if (err.status === 401) {
           this.errorMessage = 'שם משתמש או סיסמה שגויים';
         } else if (err.status === 403) {

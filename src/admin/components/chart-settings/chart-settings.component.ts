@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable, of } from 'rxjs';
 
-// Upload Services (For Uploading)
 import { ChartSettingsService } from '../../services/Chart-Settings/chart-settings.service';
 import { ChildMorbidityUploadService } from '../../services/child-morbidity-upload/child-morbidity-upload.service';
 import { VaccineImpactUploadService } from '../../services/vaccine-impact-upload/vaccine-impact-upload.service';
@@ -16,7 +15,6 @@ import { UploadLogService } from '../../services/upload-log/upload-log.service';
 import { AuthService } from '../../services/auth/auth.service';
 import { AdminService } from '../../services/admin/admin.service';
 
-// Data Services (For Tables - From Main App)
 import { MainMetricsService } from '../../../app/main/services/main-metrics.service';
 import { ChildMorbidityService } from '../../../app/main/services/child-morbidity.service';
 import { VaccineImpactService } from '../../../app/main/services/vaccine-impact.service';
@@ -26,7 +24,6 @@ import { AdditionalInvestigationsService } from '../../../app/main/services/addi
 import { RecoveryCasesService } from '../../../app/main/services/recovery-cases.service';
 import { PopulationVaccinationService } from '../../../app/main/services/population-vaccination.service';
 
-// Interfaces
 import { ChartSettingsInterface } from '../../interfaces/chart-settings-interface';
 import { ChartConfig } from '../../interfaces/chart-config';
 
@@ -151,7 +148,7 @@ export class ChartSettingsComponent implements OnInit {
         { key: 'dose1', label: 'מנה 1' },
         { key: 'dose2', label: 'מנה 2' },
         { key: 'dose3', label: 'מנה 3' },
-        { key: 'dose4', label: 'מנה 4' } // הוסף מנה 4 אם קיים בנתונים שלך
+        { key: 'dose4', label: 'מנה 4' } 
       ]
     },
     {
@@ -199,7 +196,6 @@ export class ChartSettingsComponent implements OnInit {
     private router: Router,
     private authService: AuthService,
     private adminService: AdminService,
-    // הזרקת שירותי הנתונים האמיתיים
     private mainMetricsData: MainMetricsService,
     private childMorbidityData: ChildMorbidityService,
     private vaccineImpactData: VaccineImpactService,

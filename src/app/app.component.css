@@ -8,11 +8,31 @@ body {
     position: relative;
     direction: inherit;
 }
+
 * {
     font-family: 'Open Sans Hebrew', Arial, sans-serif !important;
 }
-html, body, button, input, select, textarea {
+
+html,
+body,
+button,
+input,
+select,
+textarea {
     font-family: 'Open Sans Hebrew', Arial, sans-serif;
 }
-:root { --surface-bg: #ffffff; }
-body.dark-mode { --surface-bg: #1e1e1e; }
+
+:root {
+    --header-bg: #ffffff;
+    --dashboard-bg: #f7f9fc;
+    --card-bg: #ffffff;
+    --sidenav-bg: #ffffff;
+    --text-primary: #1a2332;
+    --text-secondary: #64748b;
+    --border-color: #e2e8f0;
+    --nav-divider: #d8dde3;
+}
+
+.dashboard-wrapper {
+    background-color: var(--dashboard-bg);
+}

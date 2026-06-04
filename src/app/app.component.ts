@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { LanguageService } from './../app/main/services/language.service'
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -7,4 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'CovidClient';
+  constructor(private languageService: LanguageService) {
+    this.languageService.init();
+  }
 }
