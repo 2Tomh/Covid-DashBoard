@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable, of } from 'rxjs';
 
@@ -34,143 +34,143 @@ import { ChartConfig } from '../../interfaces/chart-config';
 })
 export class ChartSettingsComponent implements OnInit {
   charts: ChartConfig[] = [
+    // {
+    //   name: 'מגמת ילדים מאומתים – ממוצע נע 7 ימים',
+    //   label: 'מגמת ילדים מאומתים – ממוצע נע 7 ימים',
+    //   uploadType: 'childMorbidity',
+    //   series: [
+    //     { key: 'positive', label: 'מאומתים' },
+    //     { key: 'hospitalized', label: 'מאושפזים' }
+    //   ]
+    // },
     {
-      name: 'מגמת ילדים מאומתים – ממוצע נע 7 ימים',
-      label: 'מגמת ילדים מאומתים – ממוצע נע 7 ימים',
-      uploadType: 'childMorbidity',
-      series: [
-        { key: 'positive', label: 'מאומתים' },
-        { key: 'hospitalized', label: 'מאושפזים' }
-      ]
-    },
-    {
-      name: 'מאומתים יומי - התחסנות',
-      label: 'מאומתים יומי - התחסנות',
+      name: 'השפעת התחסנות על התחלואה',
+      label: 'השפעת התחסנות על התחלואה-מאומתים יומי התחסנות',
       uploadType: 'vaccineImpact',
       series: [
         { key: 'protected', label: 'מוגנים' },
         { key: 'unprotected', label: 'לא מוגנים' }
       ]
     },
+    // {
+    //   name: 'נפטרים יומי',
+    //   label: 'נפטרים יומי',
+    //   uploadType: 'deathsDaily',
+    //   series: [{ key: 'count', label: 'נפטרים' }]
+    // },
+    // {
+    //   name: 'נפטרים יומי – מצב התחסנות',
+    //   label: 'נפטרים יומי – מצב התחסנות',
+    //   uploadType: 'deathsVaccinationStatus',
+    //   series: [{ key: 'count', label: 'כמות' }]
+    // },
+    // {
+    //   name: 'אחוז נבדקים חיוביים ',
+    //   label: 'אחוז נבדקים חיוביים ',
+    //   uploadType: 'testingPositivity',
+    //   series: [{ key: 'positiveRate', label: 'אחוז חיוביים' }]
+    // },
+    // {
+    //   name: 'מספר נבדקים לפי קבוצות גיל',
+    //   label: 'מספר נבדקים לפי קבוצות גיל',
+    //   uploadType: 'testingAgeGroups',
+    //   series: [{ key: 'count', label: 'כמות' }]
+    // },
+    // {
+    //   name: 'מספר בדיקות קורונה - יומי ',
+    //   label: 'מספר בדיקות קורונה - יומי ',
+    //   uploadType: 'testingVolume',
+    //   series: [{ key: 'count', label: 'סה"כ בדיקות' }]
+    // },
+    // {
+    //   name: 'תחקור תחלואה לאור אירועים והתחסנות',
+    //   label: 'תחקור תחלואה לאור אירועים והתחסנות',
+    //   uploadType: 'additionalInvestigationsDaily',
+    //   series: [{ key: 'count', label: 'חקירות' }]
+    // },
+    // {
+    //   name: 'מחלימים יומי ',
+    //   label: 'מחלימים יומי ',
+    //   uploadType: 'recoveryDaily',
+    //   series: [{ key: 'count', label: 'מחלימים' }]
+    // },
+    // {
+    //   name: 'תחלואה חוזרת לפי התחסנות - יומי',
+    //   label: 'תחלואה חוזרת לפי התחסנות - יומי'
+    //   , uploadType: 'recoveryVaccination',
+    //   series: [{ key: 'count', label: 'כמות' }]
+    // },
+    // {
+    //   name: 'תחלואה חוזרת - גיל והתחסנות',
+    //   label: 'תחלואה חוזרת - גיל והתחסנות',
+    //   uploadType: 'recoveryVaccinationAgeGroups',
+    //   series: [{ key: 'count', label: 'כמות' }]
+    // },
+    // {
+    //   name: 'חיסונים יומי',
+    //   label: 'חיסונים יומי',
+    //   uploadType: 'vaccinationDaily',
+    //   series: [
+    //     { key: 'dose1', label: 'מנה 1' },
+    //     { key: 'dose2', label: 'מנה 2' },
+    //     { key: 'dose3', label: 'מנה 3' }
+    //   ]
+    // },
+    // {
+    //   name: 'חיסונים מצטבר',
+    //   label: 'חיסונים מצטבר',
+    //   uploadType: 'vaccinationCumulative',
+    //   series: [{ key: 'count', label: 'סה"כ מחוסנים' }]
+    // },
+    // {
+    //   name: 'חיסונים לפי קבוצות גיל',
+    //   label: 'חיסונים לפי קבוצות גיל',
+    //   uploadType: 'vaccinationAgeGroups',
+    //   series: [{ key: 'count', label: 'כמות' }]
+    // },
     {
-      name: 'נפטרים יומי',
-      label: 'נפטרים יומי',
-      uploadType: 'deathsDaily',
-      series: [{ key: 'count', label: 'נפטרים' }]
-    },
-    {
-      name: 'נפטרים יומי – מצב התחסנות',
-      label: 'נפטרים יומי – מצב התחסנות',
-      uploadType: 'deathsVaccinationStatus',
-      series: [{ key: 'count', label: 'כמות' }]
-    },
-    {
-      name: 'אחוז נבדקים חיוביים ',
-      label: 'אחוז נבדקים חיוביים ',
-      uploadType: 'testingPositivity',
-      series: [{ key: 'positiveRate', label: 'אחוז חיוביים' }]
-    },
-    {
-      name: 'מספר נבדקים לפי קבוצות גיל',
-      label: 'מספר נבדקים לפי קבוצות גיל',
-      uploadType: 'testingAgeGroups',
-      series: [{ key: 'count', label: 'כמות' }]
-    },
-    {
-      name: 'מספר בדיקות קורונה - יומי ',
-      label: 'מספר בדיקות קורונה - יומי ',
-      uploadType: 'testingVolume',
-      series: [{ key: 'count', label: 'סה"כ בדיקות' }]
-    },
-    {
-      name: 'תחקור תחלואה לאור אירועים והתחסנות',
-      label: 'תחקור תחלואה לאור אירועים והתחסנות',
-      uploadType: 'additionalInvestigationsDaily',
-      series: [{ key: 'count', label: 'חקירות' }]
-    },
-    {
-      name: 'מחלימים יומי ',
-      label: 'מחלימים יומי ',
-      uploadType: 'recoveryDaily',
-      series: [{ key: 'count', label: 'מחלימים' }]
-    },
-    {
-      name: 'תחלואה חוזרת לפי התחסנות - יומי',
-      label: 'תחלואה חוזרת לפי התחסנות - יומי'
-      , uploadType: 'recoveryVaccination',
-      series: [{ key: 'count', label: 'כמות' }]
-    },
-    {
-      name: 'תחלואה חוזרת - גיל והתחסנות',
-      label: 'תחלואה חוזרת - גיל והתחסנות',
-      uploadType: 'recoveryVaccinationAgeGroups',
-      series: [{ key: 'count', label: 'כמות' }]
-    },
-    {
-      name: 'חיסונים יומי',
-      label: 'חיסונים יומי',
-      uploadType: 'vaccinationDaily',
-      series: [
-        { key: 'dose1', label: 'מנה 1' },
-        { key: 'dose2', label: 'מנה 2' },
-        { key: 'dose3', label: 'מנה 3' }
-      ]
-    },
-    {
-      name: 'חיסונים מצטבר',
-      label: 'חיסונים מצטבר',
-      uploadType: 'vaccinationCumulative',
-      series: [{ key: 'count', label: 'סה"כ מחוסנים' }]
-    },
-    {
-      name: 'חיסונים לפי קבוצות גיל',
-      label: 'חיסונים לפי קבוצות גיל',
-      uploadType: 'vaccinationAgeGroups',
-      series: [{ key: 'count', label: 'כמות' }]
-    },
-    {
-      name: 'מאומתים חדשים יומי ',
-      label: 'מדדים מרכזיים יומי',
+      name: 'מדדים מרכזיים',
+      label: 'מדדים מרכזיים- מאומתים חדשים יומיים',
       uploadType: 'mainMetricsDaily',
       series: [{ key: 'value', label: 'ערך' }]
     },
     {
-      name: 'ממוצע מאומתים שבועי',
-      label: 'מדדים מרכזיים שבועי',
+      name: 'מדדים מרכזיים',
+      label: 'מדדים מרכזיים -ממוצע מאומתים שבועיים',
       uploadType: 'mainMetricsWeekly',
       series: [{ key: 'value', label: 'ערך' }]
     },
-    {
-      name: 'חיסונים יומי',
-      label: 'חיסונים יומי',
-      uploadType: 'vaccinationDaily',
-      series: [
-        { key: 'dose1', label: 'מנה 1' },
-        { key: 'dose2', label: 'מנה 2' },
-        { key: 'dose3', label: 'מנה 3' },
-        { key: 'dose4', label: 'מנה 4' } 
-      ]
-    },
-    {
-      name: 'חיסונים לפי קבוצות גיל',
-      label: 'חיסונים לפי קבוצות גיל',
-      uploadType: 'vaccinationAgeGroups',
-      series: [
-        { key: 'dose1Percentage', label: 'לא מחוסנים' },
-        { key: 'dose2Percentage', label: 'מחוסנים ללא תוקף' },
-        { key: 'dose3Percentage', label: 'מחוסנים' }
-      ]
-    },
-    {
-      name: 'חיסונים מצטבר',
-      label: 'חיסונים מצטבר',
-      uploadType: 'vaccinationCumulative',
-      series: [
-        { key: 'dose1Percentage', label: 'לא מחוסנים' },
-        { key: 'dose2Percentage', label: 'מחוסנים ללא תוקף' },
-        { key: 'dose3Percentage', label: 'מחוסנים' }
-      ]
-    },
+    // {
+    //   name: 'חיסונים יומי',
+    //   label: 'חיסונים יומי',
+    //   uploadType: 'vaccinationDaily',
+    //   series: [
+    //     { key: 'dose1', label: 'מנה 1' },
+    //     { key: 'dose2', label: 'מנה 2' },
+    //     { key: 'dose3', label: 'מנה 3' },
+    //     { key: 'dose4', label: 'מנה 4' } 
+    //   ]
+    // },
+    // {
+    //   name: 'חיסונים לפי קבוצות גיל',
+    //   label: 'חיסונים לפי קבוצות גיל',
+    //   uploadType: 'vaccinationAgeGroups',
+    //   series: [
+    //     { key: 'dose1Percentage', label: 'לא מחוסנים' },
+    //     { key: 'dose2Percentage', label: 'מחוסנים ללא תוקף' },
+    //     { key: 'dose3Percentage', label: 'מחוסנים' }
+    //   ]
+    // },
+    // {
+    //   name: 'חיסונים מצטבר',
+    //   label: 'חיסונים מצטבר',
+    //   uploadType: 'vaccinationCumulative',
+    //   series: [
+    //     { key: 'dose1Percentage', label: 'לא מחוסנים' },
+    //     { key: 'dose2Percentage', label: 'מחוסנים ללא תוקף' },
+    //     { key: 'dose3Percentage', label: 'מחוסנים' }
+    //   ]
+    // },
   ];
 
   selectedChart: ChartConfig;
@@ -181,7 +181,7 @@ export class ChartSettingsComponent implements OnInit {
   adminProfile: any = null;
   uploadLog: { id: number, fileName: string, uploadedAt: string } | null = null;
   latestData: any[] = [];
-
+  @Output() onClose = new EventEmitter<void>();
   constructor(
     private service: ChartSettingsService,
     private childMorbidityUpload: ChildMorbidityUploadService,
@@ -208,7 +208,15 @@ export class ChartSettingsComponent implements OnInit {
     this.selectedChart = this.charts[0];
     this.settings = this.emptySettings();
   }
+  goBack() {
+    this.onClose.emit();
+  }
 
+  onOverlayClick(event: MouseEvent) {
+    if ((event.target as HTMLElement).classList.contains('modal-overlay')) {
+      this.goBack();
+    }
+  }
   ngOnInit() {
     this.loadSettings();
     this.loadUploadLog();

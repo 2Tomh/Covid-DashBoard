@@ -31,21 +31,15 @@ export class ProfileModalComponent implements OnInit {
   }
 
   save(): void {
-    this.errorMessage = '';
-
-    if (!this.profileForm.fullName || !this.profileForm.email) {
-      this.errorMessage = 'יש למלא שם מלא ואימייל';
-      return;
-    }
-
-    const payload: any = { ...this.profileForm };
-
+    const payload: any = {
+      fullName: this.profileForm.fullName,
+      email: this.profileForm.email
+    };
     if (this.passwordForm.currentPassword && this.passwordForm.newPassword) {
-      payload.passwordData = { ...this.passwordForm };
+      payload.currentPassword = this.passwordForm.currentPassword;
+      payload.newPassword = this.passwordForm.newPassword;
     }
 
     this.onSave.emit(payload);
-    this.passwordForm = { currentPassword: '', newPassword: '' };
   }
-
 }

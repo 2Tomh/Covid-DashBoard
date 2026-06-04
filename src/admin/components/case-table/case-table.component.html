@@ -1,0 +1,38 @@
+<section class="card table-card">
+  <div class="table-actions">
+    <h3>ניהול רשומות קורונה (ידני)</h3>
+    <button class="btn-primary" (click)="onEdit(null)">+ הוסף מקרה חדש</button>
+  </div>
+
+  <div class="table-wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th>שם מלא</th>
+          <th>מצב</th>
+          <th>עיר</th>
+          <th>תאריך</th>
+          <th>פעולות</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let c of cases">
+          <td class="name-cell">{{ c.firstName }} {{ c.lastName }}</td>
+          <td>
+            <span [ngSwitch]="c.condition?.toLowerCase()">
+              <span *ngSwitchCase="'active'">קל</span>
+              <span *ngSwitchCase="'death'">נפטר</span>
+              <span *ngSwitchDefault>{{ c.condition }}</span>
+            </span>
+          </td>
+          <td>{{ c.city }}</td>
+          <td class="date-cell">{{ c.date | date:'dd/MM/yyyy' }}</td>
+          <td>
+            <button class="btn-text edit" (click)="onEdit(c)">ערוך</button>
+            <button class="btn-text delete" (click)="onDelete(c.id)">מחק</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
